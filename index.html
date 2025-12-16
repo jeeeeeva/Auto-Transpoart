@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Vehicle Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+</head>
+<body>
+
+<div class="app">
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="logo">S</div>
+    <button class="nav active">🏠 Dashboard</button>
+    <button class="nav">💰 Payment</button>
+    <button class="nav">📊 Report</button>
+    <button class="nav">🧾 Billing</button>
+  </aside>
+
+  <!-- Main -->
+  <main class="content">
+
+    <!-- Header -->
+    <div class="header">
+      <div class="welcome">
+        <b>Hello! Dhandapani</b>
+        <span>Welcome Back... Have a Great Day!</span>
+      </div>
+    </div>
+
+    <!-- Actions -->
+    <div class="actions">
+      <button class="btn yellow" onclick="openModal()">ADD NEW VEHICLE</button>
+      <button class="btn yellow">EDIT VEHICLE</button>
+      <input type="text" id="searchInput" placeholder="🔍 Search vehicle">
+    </div>
+
+    <!-- Cards -->
+    <div class="cards">
+
+      <div class="card">
+        <h3>Vehicle Details</h3>
+
+        <div class="vehicle" data-vehicle="TN00XX0000">
+          <b>TN00XX0000</b>
+          <small>Driver: ABCD</small>
+        </div>
+
+        <div class="vehicle" data-vehicle="TN00XX1111">
+          <b>TN00XX1111</b>
+          <small>Driver: ABCD</small>
+        </div>
+
+        <div class="vehicle" data-vehicle="TN00XX2222">
+          <b>TN00XX2222</b>
+          <small>Driver: ABCD</small>
+        </div>
+
+        <button class="btn black">VIEW MORE</button>
+      </div>
+
+      <div class="card">
+        <h3>Upcoming Reminders</h3>
+        <p class="empty">No reminders available</p>
+      </div>
+
+    </div>
+  </main>
+</div>
+
+<!-- Modal -->
+<!-- Add Vehicle Modal -->
+<div class="modal" id="modal">
+  <div class="vehicle-modal">
+
+    <!-- Header -->
+    <div class="modal-header">
+      <span class="back" onclick="closeModal()">◀</span>
+      <h3>ADD NEW VEHICLE</h3>
+    </div>
+
+    <!-- Form -->
+    <div class="modal-body">
+
+      <!-- Row 1 -->
+      <div class="form-row">
+        <div class="form-group">
+          <label>Enter Vehicle No.</label>
+          <input type="text" placeholder="TN00XX0000">
+        </div>
+
+        <div class="form-group">
+          <label>Category</label>
+          <select>
+            <option>Select Category</option>
+            <option>Truck</option>
+            <option>Car</option>
+            <option>Van</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Row 2 -->
+      <div class="form-row">
+        <div class="form-group">
+          <label>Enter Driver Name</label>
+          <input type="text" placeholder="Driver Name">
+        </div>
+
+        <div class="form-group">
+          <label>Enter Driver Phone No.</label>
+          <input type="text" placeholder="9876543210">
+        </div>
+      </div>
+
+      <!-- Documents -->
+      <h4 class="section-title">Upload Documents</h4>
+
+      <div class="doc-grid">
+
+        <!-- FC -->
+        <div class="doc-card">
+          <div class="doc-title">Vehicle FC</div>
+          <div class="doc-actions">
+            <button class="remove">✖</button>
+            <button class="view">VIEW</button>
+            <button class="upload">UPLOAD</button>
+          </div>
+          <input type="date">
+        </div>
+
+        <!-- NOC -->
+        <div class="doc-card">
+          <div class="doc-title">Vehicle NOC</div>
+          <div class="doc-actions">
+            <button class="remove">✖</button>
+            <button class="view">VIEW</button>
+            <button class="upload">UPLOAD</button>
+          </div>
+          <input type="date">
+        </div>
+
+        <!-- RC -->
+        <div class="doc-card">
+          <div class="doc-title">Vehicle RC</div>
+          <div class="doc-actions">
+            <button class="remove">✖</button>
+            <button class="view">VIEW</button>
+            <button class="upload">UPLOAD</button>
+          </div>
+          <input type="date">
+        </div>
+
+        <!-- DL -->
+        <div class="doc-card">
+          <div class="doc-title">Driver Licences</div>
+          <div class="doc-actions">
+            <button class="remove">✖</button>
+            <button class="view">VIEW</button>
+            <button class="upload">UPLOAD</button>
+          </div>
+          <input type="date">
+        </div>
+
+      </div>
+
+      <!-- Save -->
+      <div class="save-wrap">
+        <button class="save-btn">SAVE</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<script src="script.js"></script>
+</body>
+</html>

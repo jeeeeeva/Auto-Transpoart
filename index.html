@@ -12,13 +12,32 @@
 <div class="app">
 
   <!-- Sidebar -->
-  <aside class="sidebar">
-    <div class="logo">S</div>
-    <button class="nav active">🏠 Dashboard</button>
-    <button class="nav">💰 Payment</button>
-    <button class="nav">📊 Report</button>
-    <button class="nav">🧾 Billing</button>
-  </aside>
+ <aside class="sidebar">
+  <div class="logo-box">
+    <img src="logo.png" alt="Logo">
+  </div>
+
+  <a href="index.html" class="nav active">
+    <i class="fa-solid fa-house"></i>
+    <span>Dashboard</span>
+  </a>
+
+  <a href="payment.html" class="nav">
+    <i class="fa-solid fa-indian-rupee-sign"></i>
+    <span>Payment</span>
+  </a>
+
+  <a href="report.html" class="nav ">
+    <i class="fa-solid fa-chart-line"></i>
+    <span>Report</span>
+  </a>
+
+  <a href="billing.html" class="nav">
+    <i class="fa-solid fa-file-invoice"></i>
+    <span>Billing</span>
+  </a>
+</aside>
+
 
   <!-- Main -->
   <main class="content">
@@ -26,46 +45,78 @@
     <!-- Header -->
     <div class="header">
       <div class="welcome">
-        <b>Hello! Dhandapani</b>
-        <span>Welcome Back... Have a Great Day!</span>
-      </div>
+  <h2>
+    <i class="fa fa-user-circle"></i>
+    Hello! <span>Dhandapani</span>
+  </h2>
+  <p>Welcome Back... Have a Great Day!</p>
+</div>
+
     </div>
 
     <!-- Actions -->
-    <div class="actions">
-      <button class="btn yellow" onclick="openModal()">ADD NEW VEHICLE</button>
-      <button class="btn yellow">EDIT VEHICLE</button>
-      <input type="text" id="searchInput" placeholder="🔍 Search vehicle">
-    </div>
+    
+    <div class="top-actions">
+   <button class="btn yellow" onclick="openModal()">ADD NEW VEHICLE</button>
+
+  <div class="search-box">
+    <i class="fa fa-search"></i>
+    <input type="text" placeholder="Search vehicle">
+  </div>
+</div>
+
 
     <!-- Cards -->
     <div class="cards">
 
       <div class="card">
-        <h3>Vehicle Details</h3>
+  <h3>Vehicle Details</h3>
 
-        <div class="vehicle" data-vehicle="TN00XX0000">
-          <b>TN00XX0000</b>
-          <small>Driver: ABCD</small>
-        </div>
+  <div class="card-content">
+    <div class="vehicle">
+      <b>TN00XX0000</b>
+      <small>Driver: ABCD</small>
+    </div>
+    <div class="vehicle">
+      <b>TN00XX1111</b>
+      <small>Driver: ABCD</small>
+    </div>
+    <div class="vehicle">
+      <b>TN00XX2222</b>
+      <small>Driver: ABCD</small>
+    </div>
 
-        <div class="vehicle" data-vehicle="TN00XX1111">
-          <b>TN00XX1111</b>
-          <small>Driver: ABCD</small>
-        </div>
 
-        <div class="vehicle" data-vehicle="TN00XX2222">
-          <b>TN00XX2222</b>
-          <small>Driver: ABCD</small>
-        </div>
+    <div class="card-content">
+    <div class="vehicle">
+      <b>TN00XX0000</b>
+      <small>Driver: ABCD</small>
+    </div>
+    <div class="vehicle">
+      <b>TN00XX1111</b>
+      <small>Driver: ABCD</small>
+    </div>
+    <div class="vehicle">
+      <b>TN00XX2222</b>
+      <small>Driver: ABCD</small>
+    </div>
+    
+  </div>
+</div>
 
         <button class="btn black">VIEW MORE</button>
       </div>
 
       <div class="card">
-        <h3>Upcoming Reminders</h3>
-        <p class="empty">No reminders available</p>
-      </div>
+  <h3>Upcoming Reminders</h3>
+
+  <div class="card-content">
+    <p class="empty">No reminders available</p>
+
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis, nihil. Quam numquam quos aliquam corrupti officiis sunt, animi, amet deserunt provident, saepe voluptatem blanditiis maxime dolore optio. Libero ducimus odit, debitis voluptas, consequatur blanditiis omnis aut consectetur dolor quo quos enim. Reiciendis, modi aliquam rerum, qui sequi iusto illum laborum minima perspiciatis deleniti illo, necessitatibus expedita voluptatem. Repellat veritatis dolor illo exercitationem asperiores rerum! Sit, odit fugiat. Ipsam et maxime, est sed ipsum ratione nesciunt dolores accusamus rerum vero quas deleniti sit deserunt consequatur tempore quisquam tempora quod excepturi possimus totam! Quidem quam ad hic autem tenetur, inventore obcaecati eos!
+  </div>
+</div>
+
 
     </div>
   </main>
@@ -96,9 +147,9 @@
           <label>Category</label>
           <select>
             <option>Select Category</option>
-            <option>Truck</option>
-            <option>Car</option>
-            <option>Van</option>
+            <option>EV</option>
+            <option>CNG</option>
+            
           </select>
         </div>
       </div>
@@ -166,11 +217,15 @@
         </div>
 
       </div>
+      
 
       <!-- Save -->
       <div class="save-wrap">
         <button class="save-btn">SAVE</button>
       </div>
+
+
+      
 
     </div>
   </div>

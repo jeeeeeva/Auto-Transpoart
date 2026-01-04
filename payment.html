@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Vehicle Dashboard</title>
+<link rel="stylesheet" href="payment.css">
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+
+</head>
+
+<body>
+
+<div class="wrapper">
+
+    <!-- Sidebar -->
+ <aside class="sidebar">
+  <div class="logo-box">
+    <img src="logo.png" alt="Logo">
+  </div>
+
+  <a href="index.html" class="nav">
+    <i class="fa-solid fa-house"></i>
+    <span>Dashboard</span>
+  </a>
+
+  <a href="payment.html" class="nav active">
+    <i class="fa-solid fa-indian-rupee-sign"></i>
+    <span>Payment</span>
+  </a>
+
+  <a href="report.html" class="nav ">
+    <i class="fa-solid fa-chart-line"></i>
+    <span>Report</span>
+  </a>
+
+  <a href="billing.html" class="nav">
+    <i class="fa-solid fa-file-invoice"></i>
+    <span>Billing</span>
+  </a>
+</aside>
+
+
+
+    <!-- Content -->
+    <div class="content">
+        <div class="header">LIST OF VEHICLE</div>
+
+        <div class="vehicle">
+            <div class="vehicle-left">
+                <div class="avatar"><i class="fa fa-user"></i></div>
+                <div>
+                    <b>TN00XX0000</b><br>
+                    Driver: ABCD
+                </div>
+            </div>
+            <div class="actions">
+                <button class="payment-btn" onclick="openPayment()">Payment</button>
+                <button class="view-btn" onclick="openView()">View</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- ===== Payment Modal ===== -->
+<div class="modal" id="paymentModal">
+    <div class="modal-box">
+        <span class="close" onclick="closeAll()">&times;</span>
+        <div class="modal-title">ADD PAYMENT INFO</div>
+
+        <div class="form-group">
+            <label>Enter Date</label>
+            <input type="date">
+        </div>
+
+        <div class="form-group">
+            <label>Enter Amount</label>
+            <input type="number" placeholder="₹ Amount">
+        </div>
+
+        <button class="save-payment">SAVE THE PAYMENT</button>
+    </div>
+</div>
+
+<!-- ===== View Modal ===== -->
+<div class="modal" id="viewModal">
+    <div class="modal-box">
+        <span class="close" onclick="closeAll()">&times;</span>
+        <div class="modal-title">VEHICLE DETAILS</div>
+
+        <div class="grid">
+            <div>
+                <label>Vehicle No</label>
+                <input>
+            </div>
+            <div>
+                <label>Category</label>
+                <input>
+            </div>
+            <div>
+                <label>Driver Name</label>
+                <input>
+            </div>
+            <div>
+                <label>Driver Phone No</label>
+                <input>
+            </div>
+        </div>
+
+        <div class="docs">
+    <b>Upload Documents</b>
+
+    <div class="doc-row doc-disabled">
+        <div class="doc-left">
+            <div class="doc-title">Vehicle NOC</div>
+            <div class="doc-name">doc name.....</div>
+        </div>
+
+        <div class="doc-right">
+            <div class="doc-actions">
+                <button class="view-doc">VIEW</button>
+                <button class="upload-doc">UPLOAD</button>
+            </div>
+            <div class="expiry">Expiry Date xx/xx/xxxx</div>
+        </div>
+    </div>
+
+    <div class="doc-row doc-disabled">
+        <div class="doc-left">
+            <div class="doc-title">Driver Licence</div>
+            <div class="doc-name">doc name.....</div>
+        </div>
+
+        <div class="doc-right">
+            <div class="doc-actions">
+                <button class="view-doc">VIEW</button>
+                <button class="upload-doc">UPLOAD</button>
+            </div>
+            <div class="expiry">Expiry Date xx/xx/xxxx</div>
+        </div>
+    </div>
+
+    <div class="doc-row doc-disabled">
+        <div class="doc-left">
+            <div class="doc-title">Driver Aadhaar</div>
+            <div class="doc-name">doc name.....</div>
+        </div>
+        
+
+        <div class="doc-right">
+            <div class="doc-actions">
+                <button class="view-doc">VIEW</button>
+                <button class="upload-doc">UPLOAD</button>
+            </div>
+            <div class="expiry">Expiry Date xx/xx/xxxx</div>
+        </div>
+    </div>
+</div>
+ <div class="popup-actions">
+            <button class="cancel" onclick="closeAll()">CANCEL</button>
+            <button class="save">SAVE</button>
+            <button class="edit">EDIT</button>
+        </div>
+
+        </div>
+
+       
+    </div>
+</div>
+
+<script>
+function closeAll(){
+    document.querySelectorAll('.modal').forEach(m=>{
+        m.style.display='none';
+    });
+}
+function openPayment(){
+    closeAll();
+    document.getElementById('paymentModal').style.display='flex';
+}
+function openView(){
+    closeAll();
+    document.getElementById('viewModal').style.display='flex';
+}
+
+
+
+
+
+
+
+</script>
+
+</body>
+</html>

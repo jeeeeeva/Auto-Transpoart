@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Billing Dashboard</title>
+    <link rel="stylesheet" href="billing.css">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+<div class="container">
+
+    <!-- Sidebar -->
+   <aside class="sidebar">
+  <div class="logo-box">
+    <img src="logo.png" alt="Logo">
+  </div>
+
+  <a href="index.html" class="nav ">
+    <i class="fa-solid fa-house"></i>
+    <span>Dashboard</span>
+  </a>
+
+  <a href="payment.html" class="nav">
+    <i class="fa-solid fa-indian-rupee-sign"></i>
+    <span>Payment</span>
+  </a>
+
+  <a href="report.html" class="nav ">
+    <i class="fa-solid fa-chart-line"></i>
+    <span>Report</span>
+  </a>
+
+  <a href="billing.html" class="nav active">
+    <i class="fa-solid fa-file-invoice"></i>
+    <span>Billing</span>
+  </a>
+</aside>
+
+    <!-- Main Content -->
+    <main class="main">
+
+        <!-- Vehicle List -->
+        <section class="vehicle-section">
+            <h2>SELECT THE VEHICLE</h2>
+
+            <div class="vehicle-list">
+
+                <!-- Vehicle Item -->
+                <div class="vehicle-item">
+                    <input type="checkbox">
+                    <i class="fa fa-user-circle"></i>
+                    <div>
+                        <strong>TN00XX0000</strong>
+                        <p>Driver: ABCD</p>
+                    </div>
+                </div>
+
+                <!-- Repeat -->
+                <div class="vehicle-item">
+                    <input type="checkbox">
+                    <i class="fa fa-user-circle"></i>
+                    <div>
+                        <strong>TN00XX0000</strong>
+                        <p>Driver: ABCD</p>
+                    </div>
+                </div>
+
+                <div class="vehicle-item">
+                    <input type="checkbox">
+                    <i class="fa fa-user-circle"></i>
+                    <div>
+                        <strong>TN00XX0000</strong>
+                        <p>Driver: ABCD</p>
+                    </div>
+                </div>
+
+                <div class="vehicle-item">
+                    <input type="checkbox">
+                    <i class="fa fa-user-circle"></i>
+                    <div>
+                        <strong>TN00XX0000</strong>
+                        <p>Driver: ABCD</p>
+                    </div>
+                </div>
+
+                <div class="vehicle-item">
+                    <input type="checkbox">
+                    <i class="fa fa-user-circle"></i>
+                    <div>
+                        <strong>TN00XX0000</strong>
+                        <p>Driver: ABCD</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Billing Panel -->
+        <section class="billing-section">
+
+            <div class="billing-header">BILLING</div>
+
+            <div class="billing-card">
+
+                <h3>INVOICE</h3>
+                <hr>
+
+                <div class="invoice-row">
+                    <div>
+                        <strong>TN00XX0000</strong>
+                        <p>Driver: ABCD</p>
+                    </div>
+                    <input type="text" placeholder="Enter Amount">
+                </div>
+
+                <hr>
+
+                <div class="date-row">
+                    <i class="fa fa-calendar-days"></i>
+                    <select>
+                        <option>Select Month</option>
+                        <option>January</option>
+                        <option>February</option>
+                    </select>
+                </div>
+
+                <button class="generate-btn">
+                    GENERATE INVOICE
+                </button>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+</body>
+</html>

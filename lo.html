@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S Auto Transport | Secure Login</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            height: 100vh;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Animated background elements */
+        .bg-circle {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 212, 59, 0.1);
+            z-index: -1;
+        }
+
+        .circle-1 {
+            width: 300px;
+            height: 300px;
+            top: -100px;
+            left: -100px;
+            background: radial-gradient(circle, rgba(255, 212, 59, 0.15) 0%, rgba(255, 212, 59, 0) 70%);
+        }
+
+        .circle-2 {
+            width: 200px;
+            height: 200px;
+            bottom: -50px;
+            right: -50px;
+            background: radial-gradient(circle, rgba(245, 159, 0, 0.1) 0%, rgba(245, 159, 0, 0) 70%);
+        }
+
+        /* Main container */
+        .container {
+            display: flex;
+            width: 90%;
+            max-width: 1100px;
+            height: 90vh;
+            max-height: 700px;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+            position: relative;
+            transition: all 0.4s ease;
+        }
+
+        .container:hover {
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.2);
+        }
+
+        /* LEFT SIDE - Brand Area */
+        .left {
+            width: 50%;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .left::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><rect width="20" height="20" fill="none"/><path d="M0,0 L20,20 M20,0 L0,20" stroke="rgba(255,255,255,0.03)" stroke-width="1"/></svg>');
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(to right, #ffd43b, #f59f00);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+        }
+
+        .logo-icon i {
+            font-size: 24px;
+            color: #333;
+        }
+
+        .brand-name {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 24px;
+            color: white;
+            letter-spacing: 1px;
+        }
+
+        .brand-tagline {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 16px;
+            margin-top: 5px;
+            font-weight: 300;
+        }
+
+        .image-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-grow: 1;
+            padding: 20px;
+        }
+
+        .image-container img {
+            max-width: 100%;
+            max-height: 350px;
+            object-fit: contain;
+            filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.3));
+            transition: transform 0.5s ease;
+        }
+
+        .image-container img:hover {
+            transform: translateY(-5px);
+        }
+
+        .features {
+            display: flex;
+            flex-wrap: wrap;
+            margin-top: 30px;
+            gap: 15px;
+        }
+
+        .feature {
+            display: flex;
+            align-items: center;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 14px;
+            margin-right: 15px;
+        }
+
+        .feature i {
+            color: #ffd43b;
+            margin-right: 8px;
+            font-size: 12px;
+        }
+
+        /* RIGHT SIDE - Login Area */
+        .right {
+            width: 50%;
+            padding: 60px 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: white;
+        }
+
+        .login-card {
+            width: 100%;
+            max-width: 400px;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .login-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .login-header h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 32px;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 8px;
+        }
+
+        .login-header p {
+            color: #666;
+            font-size: 15px;
+        }
+
+        .input-group {
+            margin-bottom: 25px;
+            position: relative;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #444;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+
+        .input-box {
+            display: flex;
+            align-items: center;
+            border: 1.5px solid #e0e0e0;
+            padding: 15px;
+            border-radius: 10px;
+            background: #f9f9f9;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .input-box i {
+            margin-right: 12px;
+            color: #888;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+
+        .input-box input {
+            border: none;
+            outline: none;
+            width: 100%;
+            font-size: 15px;
+            background: transparent;
+            color: #333;
+        }
+
+        .input-box input::placeholder {
+            color: #aaa;
+        }
+
+        .input-box:focus-within {
+            border-color: #ffd43b;
+            background: #fffdf2;
+            box-shadow: 0 5px 15px rgba(255, 212, 59, 0.2);
+        }
+
+        .input-box:focus-within i {
+            color: #f59f00;
+        }
+
+        .input-box:focus-within label {
+            color: #f59f00;
+        }
+
+        .password-toggle {
+            position: absolute;
+            right: 15px;
+            background: none;
+            border: none;
+            color: #888;
+            cursor: pointer;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+
+        .password-toggle:hover {
+            color: #f59f00;
+        }
+
+        .remember-forgot {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            font-size: 14px;
+        }
+
+        .remember {
+            display: flex;
+            align-items: center;
+        }
+
+        .remember input {
+            margin-right: 8px;
+            accent-color: #ffd43b;
+        }
+
+        .forgot-link {
+            color: #f59f00;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .forgot-link:hover {
+            color: #e67700;
+            text-decoration: underline;
+        }
+
+        /* BUTTON */
+        .btn-login {
+            width: 100%;
+            padding: 16px;
+            border: none;
+            border-radius: 10px;
+            background: linear-gradient(to right, #ffd43b, #fcc419, #f59f00);
+            color: #333;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 5px 15px rgba(245, 159, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-login i {
+            margin-left: 10px;
+            transition: transform 0.3s;
+        }
+
+        .btn-login::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.7s;
+        }
+
+        .btn-login:hover {
+            background: linear-gradient(to right, #fcc419, #f59f00, #e67700);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(245, 159, 0, 0.4);
+        }
+
+        .btn-login:hover i {
+            transform: translateX(5px);
+        }
+
+        .btn-login:hover::before {
+            left: 100%;
+        }
+
+        .btn-login:active {
+            transform: translateY(-1px);
+        }
+
+        /* DIVIDER */
+        .divider {
+            display: flex;
+            align-items: center;
+            margin: 30px 0;
+            color: #888;
+            font-size: 14px;
+        }
+
+        .divider::before,
+        .divider::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: #e0e0e0;
+        }
+
+        .divider span {
+            padding: 0 15px;
+        }
+
+        /* SOCIAL LOGIN */
+        .social-login {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .social-btn {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: 1px solid #e0e0e0;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            font-size: 18px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .social-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .social-btn.google:hover {
+            color: #DB4437;
+            border-color: #DB4437;
+        }
+
+        .social-btn.facebook:hover {
+            color: #4267B2;
+            border-color: #4267B2;
+        }
+
+        .social-btn.twitter:hover {
+            color: #1DA1F2;
+            border-color: #1DA1F2;
+        }
+
+        /* FOOTER */
+        .footer-text {
+            text-align: center;
+            margin-top: 25px;
+            font-size: 13px;
+            color: #777;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+
+        .signup-link {
+            color: #f59f00;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .signup-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .container {
+                flex-direction: column;
+                height: auto;
+                max-height: none;
+                margin: 20px;
+            }
+            
+            .left, .right {
+                width: 100%;
+            }
+            
+            .left {
+                padding: 30px;
+                min-height: 300px;
+            }
+            
+            .right {
+                padding: 40px 30px;
+            }
+            
+            .image-container img {
+                max-height: 250px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Background Circles -->
+    <div class="bg-circle circle-1"></div>
+    <div class="bg-circle circle-2"></div>
+    
+    <div class="container">
+        <!-- LEFT BRAND AREA -->
+        <div class="left">
+            <div>
+                <div class="logo-area">
+                    <div class="logo-icon">
+                        <i class="fas fa-truck-moving"></i>
+                    </div>
+                    <div>
+                        <div class="brand-name">S AUTO TRANSPORT</div>
+                        <div class="brand-tagline">Secure & Reliable Vehicle Logistics</div>
+                    </div>
+                </div>
+                
+                <div class="features">
+                    <div class="feature">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>Secure Login</span>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-shipping-fast"></i>
+                        <span>Nationwide Coverage</span>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-headset"></i>
+                        <span>24/7 Support</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="image-container">
+                <!-- Using a placeholder image - replace with your actual image -->
+                <img src="https://images.unsplash.com/photo-1580273916550-e323be2ae537?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Auto Transport Vehicle">
+            </div>
+        </div>
+        
+        <!-- RIGHT LOGIN AREA -->
+        <div class="right">
+            <div class="login-card">
+                <div class="login-header">
+                    <h2>Welcome Back</h2>
+                    <p>Sign in to your account to continue</p>
+                </div>
+                
+                <form id="loginForm">
+                    <div class="input-group">
+                        <label for="userid">User ID</label>
+                        <div class="input-box">
+                            <i class="fas fa-user"></i>
+                            <input type="text" id="userid" placeholder="Enter your User ID" required>
+                        </div>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="password">Password</label>
+                        <div class="input-box">
+                            <i class="fas fa-lock"></i>
+                            <input type="password" id="password" placeholder="Enter your password" required>
+                            <button type="button" class="password-toggle" id="togglePassword">
+                                <i class="far fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="remember-forgot">
+                        <div class="remember">
+                            <input type="checkbox" id="remember">
+                            <label for="remember">Remember me</label>
+                        </div>
+                        <a href="#" class="forgot-link">Forgot Password?</a>
+                    </div>
+                    
+                    <button type="submit" class="btn-login">
+                        Login <i class="fas fa-arrow-right"></i>
+                    </button>
+                    
+                    <div class="divider">
+                        <span>Or sign in with</span>
+                    </div>
+                    
+                    <div class="social-login">
+                        <div class="social-btn google">
+                            <i class="fab fa-google"></i>
+                        </div>
+                        <div class="social-btn facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </div>
+                        <div class="social-btn twitter">
+                            <i class="fab fa-twitter"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="footer-text">
+                        <p>© 2026 S Auto Transport. All rights reserved.</p>
+                        <p>Don't have an account? <a href="#" class="signup-link">Sign up here</a></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Toggle password visibility
+        document.getElementById('togglePassword').addEventListener('click', function() {
+            const passwordInput = document.getElementById('password');
+            const icon = this.querySelector('i');
+            
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                icon.classList.remove('fa-eye');
+                icon.classList.add('fa-eye-slash');
+            } else {
+                passwordInput.type = 'password';
+                icon.classList.remove('fa-eye-slash');
+                icon.classList.add('fa-eye');
+            }
+        });
+        
+        // Form submission
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const userId = document.getElementById('userid').value;
+            const password = document.getElementById('password').value;
+            
+            // Basic validation
+            if (userId.trim() === '' || password.trim() === '') {
+                alert('Please fill in all fields');
+                return;
+            }
+            
+            // Simulate login process
+            const loginBtn = document.querySelector('.btn-login');
+            const originalText = loginBtn.innerHTML;
+            
+            loginBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Authenticating...';
+            loginBtn.disabled = true;
+            
+            // Simulate API call
+            setTimeout(() => {
+                alert('Login successful! Redirecting to dashboard...');
+                loginBtn.innerHTML = originalText;
+                loginBtn.disabled = false;
+                
+                // In a real application, you would redirect to the dashboard
+                // window.location.href = '/dashboard';
+            }, 1500);
+        });
+        
+        // Social login buttons
+        document.querySelectorAll('.social-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const platform = this.classList.contains('google') ? 'Google' : 
+                               this.classList.contains('facebook') ? 'Facebook' : 'Twitter';
+                alert(`Sign in with ${platform} would be implemented here.`);
+            });
+        });
+        
+        // Add hover effect to input boxes when label is hovered
+        document.querySelectorAll('.input-group label').forEach(label => {
+            label.addEventListener('mouseover', function() {
+                this.parentElement.querySelector('.input-box').style.borderColor = '#ffd43b';
+            });
+            
+            label.addEventListener('mouseout', function() {
+                const inputBox = this.parentElement.querySelector('.input-box');
+                if (!inputBox.matches(':focus-within')) {
+                    inputBox.style.borderColor = '#e0e0e0';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
